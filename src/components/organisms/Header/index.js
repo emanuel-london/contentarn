@@ -1,12 +1,17 @@
 import React from 'react'
 import { TouchableOpacity, Dimensions} from 'react-native'
 import Icon from "react-native-vector-icons/Ionicons";
-import {View, Text, StyleSheet, Image} from "react-native";
+import {View, Text, Platform, LayoutAnimation, UIManager, StyleSheet, Image} from "react-native";
 import LogoItem from "../../atoms/LogoItem/index";
 import styles from "../../templates/styles";
 
 const deviceWidth = Dimensions.get("window").width;
-
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -17,10 +22,16 @@ export default class Header extends React.Component {
     };
   }
 
+  componentDidUpdate(){
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+  }
+
   driveToggle(){
-    if(!this.state.toggle){this.setState({
+    if(!this.state.toggle){
+      this.setState({
           toggle: true
-        })}else{
+        })
+  }else{
       this.setState({
           toggle: false
         })
@@ -29,7 +40,7 @@ export default class Header extends React.Component {
 
   driver(){
     if(this.state.toggle){
-        return(<View style={{height:50, alignItems:'center', justifyContent:'flex-start', flexDirection:'row', width:'100%'}}>
+        return(<View style={{height:50, paddingTop:10, alignItems:'center', justifyContent:'flex-start', flexDirection:'row', width:'100%'}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Homepage')} style={styles.eachNav}><Text>Home</Text></TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Recipe')} style={styles.eachNav}><Text>Recipe</Text></TouchableOpacity>
           </View>)
