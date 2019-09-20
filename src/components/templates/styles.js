@@ -66,9 +66,9 @@ export default StyleSheet.create({
     flex: 1
   },
   iconRight: {
+    marginTop:20,
     width: 90,
     flexDirection: "row",
-    flex: 1
   },
   titleLink: {
     fontSize: 20,
@@ -96,7 +96,14 @@ export default StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
     flex: 1,
+    alignItems:'center',
     flexDirection: "row",
     alignSelf: "center"
+  },
+  eachNav: {
+    margin:10,
+    padding:8,
+    borderWidth:1,
+    borderColor:'#333'
   }
 });

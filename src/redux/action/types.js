@@ -1,0 +1,26 @@
+// Onboarding
+export const VALIDATE_BVN = 'VALIDATE_BVN';
+export const VALIDATE_USER = "VALIDATE_USER";
+export const GET_USER_PASSWORD = "GET_USER_PASSWORD";
+export const GET_USER_PIN = "GET_USER_PIN";
+export const CREATE_CLIENT = "CREATE_CLIENT";
+
+// Loan
+export const GET_LOAN_TYPE = "GET_LOAN_TYPE";
+export const GET_LOAN_AMOUNT = "GET_LOAN_AMOUNT";
+export const GET_LOAN_TENURE = "GET_LOAN_TENURE";
+export const GET_LOAN_PURPOSE = "GET_LOAN_PURPOSE";
+export const CREATE_LOAN = "CREATE_LOAN";
+
+// Invest
+export const GET_INVEST_TYPE = "GET_INVEST_TYPE";
+export const GET_INVEST_AMOUNT = "GET_INVEST_AMOUNT";
+export const GET_INVEST_TENURE = "GET_INVEST_TENURE";
+export const GET_INVEST_NAME = "GET_INVEST_NAME";
+export const CREATE_INVESTMENT = "CREATE_INVESTMENT";
+
+
+//User
+export const GET_USER_SOCIAL = "GET_USER_SOCIAL";
+export const GET_USER_INFOS = "GET_USER_INFOS";
+export const UPDATE_CLIENT = "UPDATE_CLIENT";

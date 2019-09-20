@@ -10,6 +10,7 @@ import RecipeList from "../../organisms/RecipeList/index";
 export default class Recipes extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       nodes: [],
       allNodes: []
@@ -56,14 +57,25 @@ export default class Recipes extends React.Component {
 
   }
   componentDidMount() {
+console.log(this.props)
     this.initialize();
+  }
+
+  goBack(){
+    this.setState({
+      allNodes: [],
+      node : []
+    })
+    this.props.navigation.goBack()
+
+
   }
   render() {
     return (
       <View style={styles.container}>
           <ScrollView>
             <Header navigation={this.props.navigation} style={styles.header}/>
-            <Button title="Go back" onPress={() => this.props.navigation.goBack()} />
+            <Button title="Go back" onPress={() => {this.goBack()}} />
             <View>
               {(this.state.allNodes.length > 0) ?
               <RecipeList recipes={this.state.allNodes} navigation={this.props.navigation} />

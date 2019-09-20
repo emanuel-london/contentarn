@@ -5,6 +5,10 @@ import CardImage from "../../atoms/CardImage/index";
 import CardBody from "../../atoms/CardBody/index";
 
 export default class NodeView extends React.Component {
+  constructor(props) {
+    super(props);
+  
+  }
   render() {
     return (
       <View>

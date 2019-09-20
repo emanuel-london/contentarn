@@ -17,6 +17,7 @@ import styles from "../../templates/styles";
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       promotedItems: [],
       latestRecipes: []
@@ -24,6 +25,7 @@ export default class HomePage extends React.Component {
 
 
     }
+
    initialize = () => {
     recep = new RecipeApi();
     try {
@@ -59,6 +61,7 @@ export default class HomePage extends React.Component {
 
   }
   componentDidMount() {
+
     this.initialize();
   }
 

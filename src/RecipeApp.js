@@ -1,33 +1,22 @@
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import { createAppContainer } from "react-navigation";
-import { createDrawerNavigator } from "react-navigation-drawer";
-import DrawerNavigator from "./components";
+import { createStackNavigator } from 'react-navigation-stack';
 import HomePage from "./components/pages/Homepage/index";
 import Recipes from "./components/pages/Recipes/index";
 
-
-const MainNavigator = createDrawerNavigator({
-    Home: {
-      navigationOptions: {
-        drawerIcon: ({ tintColor }) => (
-          <Icon name="ios-home" style={{ color: "red" }} />
-        ),
-        drawerLabel: "Home"
-      },
-      screen: HomePage
-    },
-    Recipes: {
-      navigationOptions: {
-        drawerIcon: ({ tintColor }) => (
-          <Icon type='MaterialIcons' name="md-restaurant" style={{ color: tintColor }} />
-        ),
-        drawerLabel: "Recipes"
-      },
-      screen: Recipes
-    },
+const Stack = createStackNavigator(
+  {
+    Homepage : HomePage,
+    Recipes: Recipes
+  },
+  {
+    initialRouteName: 'Homepage',
+    headerMode: 'none'
   }
 );
 
-const RecipeApp = createAppContainer(MainNavigator);
-export default RecipeApp;
+const Sunny = createAppContainer(Stack);
+
+export default Sunny;
+
