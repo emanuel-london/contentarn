@@ -1,69 +1,67 @@
-import React from 'react'
-import { TouchableOpacity, Dimensions} from 'react-native'
-import Icon from "react-native-vector-icons/Ionicons";
-import {View, Text, Platform, LayoutAnimation, UIManager, StyleSheet, Image} from "react-native";
-import LogoItem from "../../atoms/LogoItem/index";
-import styles from "../../templates/styles";
-
-const deviceWidth = Dimensions.get("window").width;
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
+import React from 'react';
+import {TouchableOpacity, Dimensions} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {View, Text} from 'react-native';
+import LogoItem from '../../atoms/LogoItem/index';
+import styles from '../../templates/styles';
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-  
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  componentDidUpdate(){
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-  }
-
-  driveToggle(){
-    if(!this.state.toggle){
+  menuToggle() {
+    if (!this.state.toggle) {
       this.setState({
-          toggle: true
-        })
-  }else{
+        toggle: true,
+      });
+    } else {
       this.setState({
-          toggle: false
-        })
+        toggle: false,
+      });
     }
   }
 
-  driver(){
-    if(this.state.toggle){
-        return(<View style={{height:50, paddingTop:10, alignItems:'center', justifyContent:'flex-start', flexDirection:'row', width:'100%'}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Homepage')} style={styles.eachNav}><Text>Home</Text></TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Recipe')} style={styles.eachNav}><Text>Recipe</Text></TouchableOpacity>
-          </View>)
-      }else{
-        return(<View />)
-      }
-    }
-
-  render(){
-    return(<View style={{flex:1}}><View style={styles.row}>
-        <View style={styles.logo}>
-             <LogoItem />
+  menu() {
+    if (this.state.toggle) {
+      return (
+        <View style={styles.menu}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Homepage')}>
+            <Text style={styles.eachNav}>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Recipes')}>
+            <Text style={styles.eachNav}>Recipes</Text>
+          </TouchableOpacity>
         </View>
-  
-        <View style={styles.iconRight}>
-          <Icon style={styles.icon}
-            name="md-menu"
-            size={32}
-            color="black"
-            onPress={() => this.driveToggle()}
-      />
-     </View>
-     </View>
-     {this.driver()}
-    </View>)}
+      );
+    } else {
+      return <View />;
+    }
+  }
+
+  render() {
+    return (
+      <View style={{flex: 1}}>
+        <View style={styles.row}>
+          <View style={styles.logo}>
+            <LogoItem />
+          </View>
+
+          <View style={styles.iconRight}>
+            <Icon
+              style={styles.icon}
+              name="md-menu"
+              size={32}
+              color="black"
+              onPress={() => this.menuToggle()}
+            />
+          </View>
+        </View>
+        {this.menu()}
+      </View>
+    );
+  }
 }

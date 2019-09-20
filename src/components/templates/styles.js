@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -6,6 +6,8 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: 20,
     justifyContent: "flex-start",
+    marginLeft: 10,
+    marginRight: 10
   },
   welcome: {
     textAlign: 'center'
@@ -93,8 +95,6 @@ export default StyleSheet.create({
   row: {
     marginTop: 10,
     marginBottom: 10,
-    paddingLeft: 5,
-    paddingRight: 5,
     flex: 1,
     alignItems:'center',
     flexDirection: "row",
@@ -102,8 +102,15 @@ export default StyleSheet.create({
   },
   eachNav: {
     margin:10,
-    padding:8,
-    borderWidth:1,
-    borderColor:'#333'
+    fontSize: 14
+  },
+  menu: {
+    height:50,
+    alignItems:'center',
+    justifyContent:'flex-start',
+    flexDirection:'row',
+    width:'100%',
+    fontSize: 18,
+    color: "black"
   }
 });

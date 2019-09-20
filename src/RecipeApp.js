@@ -1,5 +1,4 @@
 import React from "react";
-import Icon from "react-native-vector-icons/Ionicons";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from 'react-navigation-stack';
 import HomePage from "./components/pages/Homepage/index";
