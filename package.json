@@ -14,7 +14,7 @@
     "normalizr": "^3.4.1",
     "prop-types": "^15.7.2",
     "react": "16.8.6",
-    "react-native": "0.60.5",
+    "react-native": "0.62.3",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-reanimated": "^1.2.0",
     "react-native-rest-client": "^0.1.1",
